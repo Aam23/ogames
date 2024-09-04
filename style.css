@@ -1,0 +1,1598 @@
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&family=Cookie&display=swap');
+
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    color: var(--background-light);
+    overflow-x: hidden;
+}
+
+:root {
+    /*----- Font Family  ----- */
+    --font-logo-style: 'Cookie', cursive;
+    --font-logo-style-two: 'Calistoga', serif;
+
+     /*----- Color  ----- */
+    --background-dark: #101014;
+    --background-light: #FFFFFF;
+    --background-light-dash: hsl(0, 0%, 50%);
+    --primary-dark: #DF812C;
+    --background-card: rgba(82, 89, 102, 10%);
+    --light-background: rgba(82, 90, 103, 15%);
+
+    /*----- Font Size  ----- */
+    --heading-one: 48px;
+    --heading-two: 40px;
+    --heading-three: 33px;
+    --heading-four: 28px;
+    --heading-five: 19px;
+    --heading-six: 19px;
+    --paragraph: 16px;
+    --small: 13px;
+    --smaller: 11px;
+}
+
+/* The entire scrollbar */
+::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+/* The track (background) of the scrollbar */
+::-webkit-scrollbar-track {
+    background-color: var(--light-background);
+}
+
+/* The draggable part of the scrollbar (the thumb) */
+::-webkit-scrollbar-thumb {
+    background-color: var(--background-light-dash); /* Color of the thumb */
+    border-radius: 6px; /* Roundness of the thumb */
+}
+
+/* The hover state of the thumb */
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--primary-dark) /* Darker color when hovered */
+}
+
+
+body {
+    background: var(--background-dark);
+    max-width: 1440px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+
+/*----- REUSED STYLE  ----- */
+.main-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+}
+.dashed-line {
+    width: 70px;       /* Adjust the width to control the length of the line */
+    border-bottom: 2px dashed var(--background-light-dash) ; /* You can change the color and thickness */
+    margin: 20px 0;     /* Optional: Adds space around the line */
+}
+
+.main-title p {
+    font-size: var(--small);
+    color: var(--primary-dark);
+}
+.title .title-discribtion p {
+    font-size: var(--heading-three);
+    text-align: center;
+}
+
+button {
+    height: 40px;
+    width: 158px;
+    background-color: var(--primary-dark);
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    margin-top: 24px;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.disabled {
+    opacity: 75%;
+}
+
+
+/*-------------------------   HEADER PAGE ------------------------------ */
+/*----- HEADER SECTION  ----- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 58px;
+    background-color: var(--background-dark);
+}
+
+.logo {
+    font-size: var(--heading-three);
+    font-family: var(--font-logo-style-two);
+}
+.logo .big, .logo .small {
+    font-family: var(--font-logo-style);
+}
+
+.header nav {
+    display: flex;
+    gap: 32px;
+    font-size: var(--paragraph);
+}
+
+.header nav a:hover {
+    color: var(--primary-dark);
+}
+
+.header .active {
+    color: var(--primary-dark);
+}
+
+.menu-icon {
+    display: none;
+    width: 2em;
+    height: 2em;
+    cursor: pointer;
+}
+
+/*----- Hide the open icon by default ----- */
+.icon-open {
+    display: none;
+}
+
+/* ----- Show the closed icon by default -----*/
+.icon-closed {
+    display: block;
+}
+
+/*----- When the menu is active ----- */
+.header.active .icon-closed {
+    display: none;
+}
+
+.header.active .icon-open {
+    display: block;
+}
+
+
+
+/*-------------------------   HOME / INDEX PAGE ------------------------------ */
+
+/*----- HERO SECTION ----- */
+.hero .container {
+    position: relative;
+    display: flex;
+    padding: 18px 53px;
+}
+
+.hero .container .text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 612px;
+}
+
+.hero .container .text h4 {
+    font-size: var(--heading-two);
+}
+.hero .container .text h4 span{
+    color: var(--primary-dark);
+    line-height: 46px;
+}
+.hero .container .text p{
+    font-size: var(--paragraph);
+    line-height: 22px;
+    opacity: 95%;
+    padding-top: 16px;
+}
+
+.hero .container img {
+    width: 833px;
+    height: 500px;
+    margin-left: 490px;
+    z-index: 0;
+    border-radius: 15px;
+}
+.hero .image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 18px;
+    left: 543px;
+    width: 833px;
+    height: 500px;
+    background: rgba(0, 0, 0, 0.2); /* Black overlay with 50% opacity */
+    z-index: 1;
+    border-radius: 15px;
+}
+
+
+
+/*----- SERVICE SECTION ----- */
+.services .container, .about-overview{
+  margin-top: 60px;
+}
+
+.services .content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    margin: 0 auto; /* Center the grid container within its parent */
+    margin-top: 38px;
+    max-width: 1330px;/* Add a maximum width to the grid container */
+    justify-content: center; /* Center grid items if they don't fill the entire row */
+}
+.services .content .card {
+   width: 319px;
+   height: 341px;
+   border-top-right-radius: 80px;
+   background-color: var(--background-card);
+}
+.services .content .card img {
+    width: 319px;
+    height: 239px;
+}
+.services .content .card .text {
+    text-align: center;
+    padding: 8px 10px;
+    align-items: center;
+}
+.services .content .card .text h5 {
+    font-size: var(--paragraph);
+    padding-bottom: 8px;
+}
+.services .content .card .text p {
+    font-size: var(--small);
+    opacity: 75%;
+}
+
+
+
+/*----- ABOUT OVERVIEW SECTION  ----- */
+.about-overview {
+    position: relative;
+    overflow: hidden; /* Ensure content doesn't overflow */
+    margin-top: 130px;
+}
+
+.about-overview::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(images/about-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.6; /* Increased opacity for more visibility */
+    filter: brightness(0.4) contrast(1.2) sepia(0.1); /* Adjusted filters */
+    z-index: -1; /* Ensure it sits behind the content */
+}
+
+
+.about-overview .content {
+    margin: 0 auto; 
+    padding-top: 38px;
+    max-width: 1100px;
+    justify-content: center; /
+}
+.about-overview .container .title {
+    margin-top: 50px;
+}
+
+.about-overview .content .text {
+    margin-bottom: 32px;
+}
+
+.about-overview .content .text  p{
+  opacity: 90%;
+  margin-bottom: 8px;
+}
+.about-overview .content .images {
+    display: flex;
+    gap: 10px; /* Optional: Space between images */
+    margin-bottom: 50px;
+}
+
+.about-overview .content .images > div {
+    flex: 1;
+    height: 241px; /* Set a fixed height for all image containers */
+    overflow: hidden; /* Ensure content doesn't overflow */
+}
+
+.about-overview .content .images .image-one img,
+.about-overview .content .images .image-two img,
+.about-overview .content .images .image-three img {
+    height: 100%; /* Ensure images fill the container height */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the container while preserving aspect ratio */
+}
+
+.about-overview .content .images .image-one {
+    flex: 0 0 326px; /* Set fixed width for .image-one */
+}
+
+.about-overview .content .images .image-two {
+    flex: 0 0 429px; /* Set fixed width for .image-two */
+}
+
+.about-overview .content .images .image-three {
+    flex: 0 0 326px; /* Set fixed width for .image-three */
+}
+
+
+
+/*----- PROJECTS SECTION ----- */
+.projects {
+    margin-top: 60px;
+}
+.projects .container{
+    margin: 0 auto; 
+    padding-top: 38px;
+    max-width: 1110px;
+    justify-content: center;
+}
+.projects .container .content {
+    display: flex;
+    align-items: center;
+}
+
+.projects .container .content .image-one {
+   margin-left: -100px;
+}
+
+.projects .container .content .text {
+    margin-left: 20px;
+}
+
+.projects .container .content .icon {
+    width: 550px;
+    display: flex;
+    margin-bottom: 20px;
+   
+}
+.projects .container .content .icon .icon-image {
+   padding-right: 14px;
+}
+
+.projects .container .content .icon .circle-bg {
+    width: 45px;
+    height: 45px;
+    background-color: var(--light-background);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.projects .container .content .icon .icon-text {
+    width: 413px;
+}
+
+.projects .container .content .icon .icon-text h6 {
+     font-size: var(--paragraph);
+     padding-bottom: 8px ;
+ }
+
+ .projects .container .content .icon .icon-text p {
+    font-size: var(--small);
+    opacity: 75%;
+}
+
+
+
+/*----- GAMES SECTION ----- */
+.games-overview {
+    margin-top: 60px;
+}
+.games-overview .container .content{
+    margin: 0 auto; 
+    padding-top: 45px;
+    max-width: 1324px;
+    justify-content: center;
+    display: flex;
+    gap: 24px;
+}
+.games-overview .container .content .image {
+    width: 245px;
+}
+
+.games-overview .container .content .image img {
+    width: 240px;
+    height: 347px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+.games-overview .container .content .image .card-bg,
+.games-overview .container .content .image .card-bg-two,
+.games-overview .container .content .image .card-bg-three,
+.games-overview .container .content .image .card-bg-four,
+.games-overview .container .content .image .card-bg-five{
+    background-color: #FEC929;
+    border-radius: 15px;
+    width: 244px;
+    height: 347px;
+    margin-top: -347px;
+}
+.games-overview .container .content .image .card-bg-two{
+    background-color: #33B0C6;
+}
+.games-overview .container .content .image .card-bg-three{
+    background-color: #F8A42F;
+}
+.games-overview .container .content .image .card-bg-four{
+    background-color: #E57AEC;
+}
+.games-overview .container .content .image .card-bg-five{
+    background-color: #1BF6D9;
+}
+.games-overview .container .content .card-text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 240px;
+    margin-top: 4px;
+}
+
+.games-overview .container .content .soon {
+    font-size: var(--smaller);
+    color: var(--primary-dark);
+}
+
+.games-overview .container .content .icon-soon {
+    opacity: 50%;
+}
+
+
+
+/*----- PARTNERS SECTION ----- */
+.partners .container {
+    margin: 0 auto;
+    justify-content: center;
+    width: 1440px;
+    gap: 50px;
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+    padding-bottom: 40px;
+}
+
+
+
+/*----- FOOTER SECTION ----- */
+footer {
+    background-color: #18181C;
+    height: 205px;
+    justify-content: center;
+    margin: 0 auto;
+    opacity: 90%;
+}
+footer .container {
+    margin: 0 auto;
+    justify-content: center;
+    width: 1312px;
+    gap: 50px;
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+}
+
+.footer .container nav a{
+    padding-left: 20px;
+}
+
+footer .container .social-media {
+    display: flex;
+    gap: 20px;
+}
+
+footer hr {
+    width: 1311px;
+    margin: 0 auto;
+    opacity: 10%;
+    margin-top: 32px;
+}
+
+footer p {
+    font-size: var(--paragraph);
+    opacity: 50%;
+    text-align: center;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+
+
+
+
+
+/*-------------------------   OUR GAMES ------------------------------ */
+
+/*----- OUR GAMES HERO SECTION ----- */
+.hero-games .container img {
+    height: 289px;
+    width: 1440px;
+    object-fit: cover;  
+}
+
+/*----- LATEST GAMES SECTION ----- */
+.latest-games{
+    margin-top: 70px;
+}
+.latest-games .container .content {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    gap: 32px;
+    padding-top: 52px;
+}
+.latest-games .container .content .card {
+    width: 606px;
+    height: 210px;
+    background-color: var(--light-background);
+    border-top-right-radius: 80px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    overflow: hidden;
+}
+.latest-games .container .content .card img{
+   width: 237px;
+   height: 210px;
+   object-fit: cover;
+}
+.latest-games .container .content .card .text h5{
+   font-size: var(--paragraph);
+   padding-bottom: 10px;
+}
+.latest-games .container .content .card .text p{
+    font-size: var(--small);
+    padding-bottom: 10px;
+    width: 310px;
+    opacity: 75%;
+}
+.latest-games .container .content .card .text button {
+    width: 119px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/*----- GAME GALLERY SECTION ----- */
+.game-gallery {
+    margin-top: 120px;
+}
+.game-gallery .container {
+    position: relative; /* Make sure the container is positioned */
+    z-index: 1; /* Set the z-index for the content */
+}
+.game-gallery .container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(images/hero.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+    filter: brightness(0.4) contrast(1.2) sepia(0.1);
+    z-index: -1; /* Ensure the background is behind the content */
+}
+.game-gallery .container {
+    padding-top: 42px;
+}
+.game-gallery .container .content {
+    padding: 42px 0 42px 0;
+}
+.game-gallery .container .content .images{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    gap: 4px;
+}
+.game-gallery .container .content .images .image-one img{
+    width: 326px;
+    height: 241px;
+    object-fit: cover;
+    cursor: pointer; /* Make the image look clickable */
+}
+.game-gallery .container .content .images .image-two img{
+    width: 429px;
+    height: 241px;
+    object-fit: cover;
+    cursor: pointer; /* Make the image look clickable */
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.modal-content {
+    max-width: 90%; /* Limit the width to 90% of the viewport */
+    max-height: 90%; /* Limit the height to 90% of the viewport */
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure image scales correctly within modal */
+    display: block;
+    margin: auto;
+}
+
+
+
+.modal-content, .close {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--primary-dark);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Modal navigation arrows */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+
+
+/*----- UPCOMING GAMES SECTION ----- */
+.upcoming-games {
+    margin-top: 80px;
+}
+.upcoming-games .container .content {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    gap: 32px;
+    padding: 42px 0 90px 0;
+}
+.upcoming-games .container .content .card{
+    width: 408px;
+    height: 409px;
+    border-top-right-radius: 80px;
+    background-color: var(--light-background);
+}
+.upcoming-games .container .content .card .image img {
+    width: 408px;
+    height: 300px;
+    object-fit: cover;
+    object-position: top;
+}
+.upcoming-games .container .content .card .text {
+    text-align: center;
+    width: 363px;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+.upcoming-games .container .content .card .text h5 {
+    font-size: var(--paragraph);
+    margin-top: 10px;
+}
+.upcoming-games .container .content .card .text p {
+    font-size: var(--small);
+    opacity: 75%;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+/*-------------------------   OUR GALLERY ------------------------------ */
+#our-gallery {
+    margin-top: 0;
+}
+#gallery-footer {
+    margin-top: 30px;
+}
+
+
+
+
+
+
+/*-------------------------  CONTACT PAGE  ------------------------------ */
+.hero-contact .container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-image: url(images/contact-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    filter: brightness(0.6);
+}
+
+.hero-contact .container .text {
+    width: 460px;
+    padding: 120px 0 0 60px;
+    
+}
+
+.hero-contact .container .text h5 {
+    font-size: var(--heading-four); 
+    padding-bottom: 14px; 
+}
+
+.hero-contact .container .text p {
+    font-size: var(--paragraph);  
+    opacity: 95%;
+}
+
+/*----- DETAILS SECTION  -----*/
+.contact-details {
+    margin-top: 200px;
+}
+
+.contact-details .container {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    gap: 80px;
+}
+
+.contact-details .container .card {
+   width: 304px;
+}
+.contact-details .container .card .icon {
+   padding-bottom: 22px;
+}
+.contact-details .container .card .text h6{
+   font-size: var(--heading-six);
+   padding-bottom: 10px;
+   font-weight: 100;
+}
+.contact-details .container .card .text p{
+    font-size: var(--small);
+    padding-bottom: 10px;
+    opacity: 75%;
+ }
+ .contact-details .container .card .text span{
+    font-size: var(--paragraph);
+    color: var(--primary-dark);
+ }
+ .vertical-line {
+   background-color: var(--background-light);
+   width: 1px;
+   opacity: 25%;
+    
+}
+
+/*----- CONTACT FOOTER SECTION  -----*/
+#contact-footer{
+    margin-top: 100px;
+}
+
+
+
+/*-------------------------  CAREER PAGE ------------------------------ */
+.career {
+    padding: 18px 58px;
+}
+.career .container {
+    display: flex;
+    gap: 68px;
+    align-items: center;
+}
+.career .container .images{
+    display: flex;
+    width: 1000px;
+    height: 404px;
+    gap: 24px;
+}
+.career .container .images .image-one img {
+    width: 342px;
+    height: 400px;
+    object-fit: cover;
+}
+.career .container .images .image-two img {
+    width: 154px;
+    height: 400px;
+    object-fit: cover;
+}
+.career .container .images .image-three img  {
+    width: 146px;
+    height: 400px;
+    object-fit: cover;
+}
+.career .container .images .image-four img {
+    width: 129px;
+    height: 400px;
+    object-fit: cover;
+}
+.career .text {
+    width: 540px;
+}
+.career .text h5 {
+    font-size: var(--heading-one);
+    margin-bottom: 16px;
+}
+.career .text h5 span {
+    color: var(--primary-dark);
+}
+
+.career-details {
+    margin-top: 50px;
+}
+
+.career-details .content {
+    margin-top: 50px;
+    text-align: center;
+}
+.career-details .content span {
+    font-weight: 600;
+}
+.career-details .content a {
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+
+
+
+
+/*-------------------------  EVENTS PAGE ------------------------------ */
+.hero-contact .events::before {
+    background-image: url(images/events.jpg);
+  
+}
+.events-details {
+    margin-top: 170px;
+    padding: 18px 200px;
+}
+.events-details .container .content {
+    margin-top: 66px;
+}
+.events-details .container .content .events-one {
+    display: flex;
+    gap: 80px;
+    align-items: center;
+}
+.events-details .container .content .events-one img {
+    width: 430px;
+    height: 294px;
+}
+.events-details .container .content .events-one .text {
+    width: 569px;
+  
+}
+.events-details .container .content .events-one .text h5 {
+    font-size: var(--heading-six);
+    font-weight: 400;
+    margin-bottom: 12px;
+}
+
+.events-details .container .content .events-one:first-child {
+   margin-bottom: 100px;
+}
+
+.events-details .container .content .events-one .text .sub-one p,
+.events-details .container .content .events-one .text .three p  {
+    font-size: var(--paragraph);
+    margin-bottom: 16px;
+    opacity: 75%;
+}
+
+.events-details .container .content .events-one .text .sub-two p {
+    font-size: var(--paragraph);
+    margin-bottom: 12px;
+}
+.events-details .container .content .events-one .text .sub-two span {
+    padding-left: 8px;
+    
+}
+.events-details .container .content .events-one .text .sub-two small {
+    color: var(--primary-dark);
+    padding-left: 8px;
+    font-size: var(--paragraph);
+}
+
+.events-details .container .content .dash_line {
+    width: 569px;
+    border: 1px solid var(--background-light);
+    opacity: 5%;
+    margin: 24px 0 24px 0;
+}
+
+.events-details .container .content .view a {
+    align-items: center;
+    font-size: var(--paragraph);
+    opacity: 75%;
+    display: flex;
+    gap: 16px;
+}
+
+.events-details .container .content .view a:hover {
+    opacity: 100px;
+    color: var(--primary-dark);
+}
+
+
+
+/*------------------------- CAREER PAGE  ------------------------------ */
+
+.hero-contact .blog::before {
+    background-image: url(images/blog.jpg);
+  
+}
+
+/*------------------------- ABOUT PAGE  ------------------------------ */
+
+.about {
+    padding: 44px 53px;
+}
+.about .container .title .title-discribtion {
+    font-size: var(--heading-four);
+    font-weight: 600;
+}
+.about .container .text {
+    width: 1088px;
+    align-items: center;
+    margin: auto;
+    margin-top: 16px;
+}
+.about .container .images {
+    display: flex;
+    gap: 14px;
+    margin-top: 36px;
+}
+.about .container .images .img-one img {
+    width: 740px;
+    height: 306px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.about .container .images .img-two img {
+    width: 570px;
+    height: 306px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/*----- OUR STORY SECTION  -----*/
+.story {
+    margin-top: -50px;
+}
+.story .title {
+    margin-top: 50px;
+}
+.game-gallery .story::before {
+    background-image: url(images/vr2.jpg);
+}
+
+.story  .content {
+   display: flex;
+   width: 1248px;
+   align-items: center;
+   justify-content: center;
+   margin: 0 auto;
+   gap: 53px;
+}
+
+ .founder img {
+    width: 347px;
+    height: 375px;
+    object-fit: cover;
+    z-index: 1;
+    border-radius: 10px;
+}
+
+ .founder .name {
+    background-color: var(--primary-dark);
+    width: 150px;
+    height: 40px;
+    border-top-right-radius: 40px;
+    text-align: center;
+    padding: 11px 38px;
+    margin-left: 125px;
+    margin-top: -50px;
+    z-index: 2; /* Increase z-index to make it appear in front */
+    position: relative; /* Ensure z-index takes effect */
+}
+
+
+.story  .content .text  .abt-text {
+    width: 436px;
+    font-size: 15px;
+    opacity: 90%;
+    margin-bottom: 24px;
+    line-height: 16px;
+}
+.story  .content .text  .abt-text p:first-child ,
+.story  .content .text  .vision p {
+    margin-bottom: 24px;
+}
+.story .content .text  .vision h6 {
+    font-size: var(--heading-six);
+    margin-bottom: 8px;
+}
+.story .content .text  .vision p {
+    width: 436px;
+    font-size: 15px;
+    opacity: 90%;
+    line-height: 16px;
+}
+
+
+/*----- OUR TEAM SECTION  -----*/
+.team {
+   margin-bottom: 50px;
+    margin-top: 50px;
+}
+.team .container .content {
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    width: 1122px;
+    padding-bottom: 50px;
+}
+.team .container .content  .members {
+    display: flex;
+    gap: 32px;
+    margin-top: 42px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-------------------------  MEDIA QUERIES ------------------------------ */
+
+/* Small screens (min-width: 575px) */
+@media (min-width: 575px) {
+    .header nav {
+        display: flex; 
+        position: static;
+        flex-direction: row;
+        gap: 20px;
+        padding: 0;
+    }
+  
+    .menu-icon {
+        display: none;
+    }
+
+    
+   
+    
+}
+
+
+/* Medium screens (min-width: 768px) */
+@media (min-width: 768px) {
+    .header nav {
+        display: flex; 
+    }
+    
+    .menu-icon {
+        display: none; 
+    }
+    
+
+}
+
+
+/* Large screens (max-width: 1200px) */
+@media (max-width: 1200px) {
+    .header, .hero .container,
+    .about-overview .container,
+    .events-details,
+    .about
+     {
+        padding: 18px 22px;
+    }
+    .header nav {
+        display: none; 
+        flex-direction: column;
+        gap: 20px;
+        position: absolute;
+        top: 70px;
+        left: 15px;
+        width: calc(100% - 40px);
+        padding: 20px;
+        background-color: var(--background-dark);
+        z-index: 100;
+    }
+
+    .logo {
+        font-size: var(--heading-four);
+        font-family: var(--font-logo-style-two);
+    }
+
+    .header.active nav {
+        display: flex; 
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+       /*----- HERO SECTION ----- */
+    .hero .container .text {
+        width: 100%;
+    }
+    .hero .container .text h4 {
+        font-size: var(--heading-three);
+        margin-right: 20px;
+    }
+
+    .hero .container .text p {
+        margin-right: 30px;
+    }
+
+    .hero .container img {
+      
+       left: 0;
+      
+    }
+
+    .title{
+        margin-bottom: 38px;
+    }
+    
+    /*----- SERVICE SECTION ----- */
+    .services {
+        margin-top: -90px;
+    }
+
+    .services .container {
+        padding: 18px 2px; 
+    }
+    
+    .services .container .content {
+        display: block;
+        max-width: 100%; /* Allow the container to use full width */
+        padding: 0 38px; /* Adjust padding to ensure it doesn’t exceed the viewport width */
+        margin: 0 auto; /* Center the container */
+    }
+
+    .services .container .content .card {
+        margin-bottom: 30px;
+        width: 100%; /* Make the card responsive */
+        overflow: hidden;
+    }
+
+    .services .container .content .card .image img,
+    .about-overview .content .images .image-two img {
+        width: 100%; 
+    }
+
+    
+    /*----- ABOUT OVERVIEW SECTION  ----- */
+    .about-overview {
+        margin-top: -60px;
+        margin-bottom: -40px;
+    }
+    .about-overview .content {
+        margin-top: -50px;
+    }
+    .about-overview .content .images {
+        display: inline;
+    }
+    .about-overview .content .images  .image-one, 
+    .about-overview::before{
+        display: none;
+    }
+
+
+
+    /*----- PROJECTS SECTION  ----- */
+    .projects .container {
+        margin-top: -20px;
+    }
+  
+    .projects .container .content .image,
+    .projects .container .content .image-one {
+        display: none;
+    }
+
+    .projects .container .content {
+       margin: 0 auto;
+       align-items: center;
+       justify-content: center;
+    }
+
+    .projects .container .content .icon {
+        display: block;
+        width: 470px;  
+         
+    }
+
+    .projects .container .content .icon .icon-text {
+        width: 310px;
+        margin-top: 16px ;
+    }
+    
+    .games-overview  {
+        margin-top: 50px;
+    }
+
+    .games-overview .container .content {
+        display: block;
+        margin: 0 auto; 
+        width: 270px;
+        justify-content: center;
+        margin-top: -40px;
+       
+    }
+    .games-overview .container .content .card {
+        margin-bottom: 30px;
+    }
+    
+
+    /*----- PARTNERS SECTION ----- */
+    .partners {
+        margin-top: -50px;
+    }
+    .partners .container {
+        margin: 0 auto;
+        justify-content: center;
+        width: 300px;
+        display: block;
+    }
+
+    .partners .container .image {
+        margin-bottom: 30px;
+    }
+
+
+
+    /*----- FOOTER SECTION ----- */
+    footer{
+        height: auto;
+    }
+    footer .container {
+        margin: 0 auto;
+        justify-content: center;
+        width: 300px;
+        display: block;
+        align-items: center;
+    }
+    footer .container .logo {
+        margin-bottom: 20px;
+    }
+   
+    footer .container .social-media {
+        margin-top: 20px;
+    }
+
+
+
+    /*-------------------------   OUR GAMES ------------------------------ */
+    /*----- OUR GAMES HERO SECTION ----- */
+   .hero-games .container img {
+        height: 289px;
+        width: 100%;
+        object-fit: fill;  
+    }
+
+    /*----- LATEST GAMES SECTION ----- */
+    .latest-games {
+        margin-top: 30px;
+    }
+    .latest-games .container .content {
+        display: block;
+        margin: auto;
+        justify-content: center;
+        padding-top: 5px;
+    }
+    .latest-games .container .content .card {
+        width: 320px;
+        height: 210px;
+        border-top-right-radius: 80px;
+        display: block;
+        align-items: center;
+        gap: 50px;
+        overflow: hidden;
+        padding-bottom: 200px;
+        margin: auto;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+    .latest-games .container .content #corona {
+        padding-bottom: 212px;
+    }
+    .latest-games .container .content .card img {
+        width: 320px;
+        height: 250px;
+    }
+    .latest-games .container .content .card .text {
+        width: 304px;
+        text-align: center;
+    }
+
+    /*----- GAME GALLERY SECTION ----- */
+    .game-gallery {
+        margin-top: -20px;
+    }
+    .game-gallery .container::before {
+        display: none;
+    }
+    .game-gallery .container .content {
+        margin-top: -50px;
+    }
+
+    /*----- UPCOMING GAMES SECTION ----- */
+    .upcoming-games {
+        margin-top: 20px;
+    }
+    .upcoming-games .container .content {
+        display: block;
+        margin: auto;
+        justify-content: center;
+        margin-top: -50px;
+    }
+
+    .upcoming-games .container .content .card{
+        width: 320px;
+        height: 415px;
+        border-top-right-radius: 80px;
+        background-color: var(--light-background);
+        margin: auto;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+    .upcoming-games .container .content .card .text {
+        width: 300px;
+    }
+    .footer-games {
+        margin-top: -30px;
+    }
+
+
+    
+    /*-------------------------  CONTACT US ------------------------------ */
+
+    .hero-contact .container .text {
+        width: 300px;
+        padding: 60px 0 0  15px;
+        
+    }
+
+        /*----- DETAILS SECTION  -----*/
+    .contact-details {
+        margin-top: 130px;
+        margin-bottom: -20px;
+        
+    }
+
+    .contact-details .container {
+        display: block;
+    }
+
+    .contact-details .container .card {
+        width: 304px;
+        margin: 0 auto;
+        justify-content: center;
+        padding-bottom: 50px;
+    }
+
+
+    
+
+    /*------------------------- CAREER PAGE  ------------------------------ */
+
+    .career .container .images {
+        display: none;
+    }
+
+    .career-details .content {
+        padding: 0 22px;
+    }
+
+
+    /*------------------------- BLOG PAGE  ------------------------------ */
+
+    .main-blog {
+        margin-top: 110px;
+    }
+
+    .main-blog .container .content {
+        margin-top: -40px;
+    }
+
+    .main-blog .container .content p {
+        width: 100%;
+    }
+
+
+    .main-blog .container .content .image {
+        margin-top: 20px;
+    }
+
+    .main-blog .container .content .events-one .sub-one h5{
+        margin-top: 20px;
+        width: 100%;
+    }
+    
+    .main-blog .container .content .events-two {
+        margin-top: -50px;
+    }
+
+    #contact-footer {
+        margin-top: 70px;
+    }
+
+
+     /*------------------------- EVENTS PAGE  ------------------------------ */
+    .main-events {
+        margin-top: 100px;
+    }
+    .hero-contact .events  .text{
+        padding-top: 100px;
+    }
+
+    .events-details .container .content {
+        margin-top: 30px;
+    }
+    .events-details .container .content .events-one {
+        display: block;
+        align-items: center;
+        margin-top: -40px;
+    }
+    .events-details .container .content .events-one img {
+        width: 100%;
+    }
+
+    .events-details .container .content .events-one .text {
+      width: 100%;
+        margin-top: 24PX;
+    }
+
+
+
+    /*------------------------- ABOUT PAGE  ------------------------------ */
+
+    .about .container .text {
+        width: 100%;
+        align-items: center;
+        margin: auto;
+    } 
+    
+    .about .container .images .img-one:first-child {
+        display: none;
+    }
+
+    .about .container .images .img-one img {
+        width: 440px;
+        height: 306px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+   .story .content {
+        display: block;
+        
+    }
+    .game-gallery .story .content .founder {
+        padding: 24px 4px;
+    }
+    .story  .content .text  .abt-text {
+        width: 320px;
+        padding: 24px 20px;
+       
+    }
+
+    .story  .content .text  .vision p , .vision h6{
+        width: 350px;
+        padding: 0 20px;
+        overflow: hidden;
+       
+    }
+
+    .team {
+        margin-top: -10px;
+    }
+    .team .container .content{
+       width: 364px;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: center;
+    }
+    .team .container .content  .members {
+        display: block;
+    }
+    .team .container .content {
+        margin-top: -50px;
+    }
+    .team .container .content  .members .founder {
+        margin-bottom: 24px;
+        
+    }
+    
+    .about-footer {
+        margin-top: -40px;
+    }
+
+
+  
+}
